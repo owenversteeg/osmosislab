@@ -7,6 +7,5 @@ Procedure 1
 
 Procedure 2
 
-Moss
-The moss was nice and turgid and totally not flaccid
+
 
