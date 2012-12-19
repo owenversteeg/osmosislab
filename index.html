@@ -113,10 +113,10 @@ mixpanel.init("65f6360c5014d74f7ea1c103a82c63f0");</script><!-- end Mixpanel -->
 
 <script type="text/javascript">
    $(document).ready(function() { 
-     $.getJSON("http://jsonip.appspot.com?callback=?",
-    function(data){
-      console.log(data.ip);
-       mixpanel.track("pageload", {"ip": data.ip.toString()});
+$.getJSON("http://jsonip.appspot.com?callback=?",
+    function(data){ ip=data.ip.toString();
+      console.log(ip);
+       mixpanel.track("pageload", {"ipaddr": ip.toString()});
   });
     }); 
 </script>
