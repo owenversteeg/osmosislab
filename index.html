@@ -1,117 +1,571 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Owen, Erik, James, and Brendan's Osmosis Lab</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <!-- Le styles -->
-<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-    </style>
-    
-        <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+   <head>
+      <meta charset="utf-8" />
+      <title>Owen, Erik, James, and Brendan's Osmosis Lab</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="" />
+      <meta name="author" content="" />
+      <link rel="shortcut icon" href="favicon.png">
+      <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
 typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.increment people.append people.track_charge".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||
 []);
 mixpanel.init("65f6360c5014d74f7ea1c103a82c63f0");</script><!-- end Mixpanel -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
-    <link href="../assets/css/bootstrap-responsive.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <!-- Fav and touch icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png">
-      <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png">
-                    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png">
-                                   <link rel="shortcut icon" href="../assets/ico/favicon.png">
-  </head>
-
-  <body>
-
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Osmosis Lab</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li class="divider"></li>
-                  <li class="nav-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
+      <style media="screen">
+         html {
+          font-weight: normal;
+         }
+         body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         font-weight: 100 !important;
+         }
+         section, header {
+         display: block;
+         }
+         #container {
+         position: relative;
+         width: 900px;
+         margin: 10px auto;
+         }
+         section {
+         width: 900px;
+         height: 540px;
+         margin-bottom: 80px;
+         position: relative;
+         z-index: 1;
+         }
+         #grid {
+         width: 900px;
+         height: 540px;
+         position: absolute;
+         display: none;
+         }
+         #grid div {
+         float: left;
+         width: 99px;
+         height: 59px;
+         border-left: 1px solid #DDD;
+         border-bottom: 1px solid #DDD;
+         }
+         #grid .target {
+         width: 300px;
+         height: 180px;
+         background: hsla( 0, 100%, 50%, 0.2 );
+         position: absolute;
+         left: 300px;
+         top: 180px;
+         }
+         h1, h2, p {
+         margin: 0 0 15px;
+         }
+         section header {
+         padding: 0 10px;
+         }
+         section h2 {
+         font-size: 28px;
+         line-height: 30px;
+         }
+         p {
+         background: hsla( 0, 0%, 0%, 0.3 );
+         height: 15px;
+         }
+         .w3, .w6 { 
+         position: absolute;
+         margin: 0 10px;
+         padding-top: 15px;
+         }
+         .w3 { width: 280px; }
+         .w3.box { width: 250px; }
+         .h3.box { height: 150px; }
+         .h3.box .img { line-height: 150px; }
+         .h6.box { height: 315px; }
+         .h6.box .img { line-height: 315px; }
+         .w6 { width: 580px; }
+         .w6.box { width: 550px; }
+         .x3 { left: 300px; }
+         .x6 { left: 600px; }
+         .y3 { top: 180px; }
+         .y6 { top: 360px; }
+         .box {
+         padding-top: 0;
+         border: 5px solid;
+         padding: 10px;
+         }
+         .img {
+         background: hsla( 0, 0%, 0%, 0.3 );
+         color: white;
+         text-align: center;
+         height: 100%;
+         font-size: 100px;
+         }
+         /* nav */
+         #nav {
+         padding: 0;
+         margin: 0 auto 10px;
+         overflow: auto;
+         width: 880px;
+         position: relative;
+         z-index: 100;
+         }
+         #nav li {
+         list-style: none;
+         float: left;
+         }
+         #nav li a {
+         text-decoration: none;
+         display: block;
+         background: #EEF;
+         background: hsla( 0, 0%, 90%, 0.85 );
+         color: blue;
+         padding: 8px 15px;
+         }
+         #nav li a:hover {
+         background: red;
+         color: white;
+         }
+         /* Section-specific layout */
+         #level-one h1 {
+         font-size: 100px;
+         line-height: 105px;
+         }
+         #level-two header,
+         #level-three header,
+         #level-four header { padding-top: 0;}
+         #level-two h1 {
+         line-height: 85px;
+         font-size: 92px;
+         }
+         #level-three header,
+         #level-four header { padding: 0;}
+         #level-three h1 {
+         font-size: 150px;
+         line-height: 180px;
+         }
+         #level-four h1 {
+         font-size: 110px;
+         line-height: 105px;
+         }
+         #level-five h1 {
+         font-size: 160px;
+         line-height: 180px;
+         }
+         /* Section colors */
+         #level-one { color: hsl( 0, 90%, 45% ); }
+         #level-one p, #level-one .img { background: rgba(255, 0, 0, 0.17); }
+         #level-two { color: hsl( 72, 90%, 40% ); }
+         #level-two p, #level-two .img { background: hsla( 72, 90%, 40%, 0.3 ); }
+         #level-three { color: hsl( 144, 90%, 45% ); }
+         #level-three p, #level-three .img { background: hsla( 144, 90%, 45%, 0.3 ); }
+         #level-four { color: hsl( 216, 90%, 45% ); }
+         #level-four p, #level-four .img { background: hsla( 216, 90%, 45%, 0.3 ); }
+         #level-five { color: hsl( 288, 90%, 45% ); }
+         #level-five p, #level-five .img { background: hsla( 288, 90%, 45%, 0.3 ); }
+         /* step 2 */
+         .csstransforms #content {
+         position: absolute;
+         width: 900px;
+         height: 540px;
+         }
+         .csstransforms section {
+         position: absolute;
+         }
+         .csstransforms #level-two {
+         -webkit-transform: scale(0.3333);
+         -moz-transform: scale(0.3333);
+         -o-transform: scale(0.3333);
+         transform: scale(0.3333);
+         }
+         .csstransforms #level-three {
+         -webkit-transform: scale(0.1111);
+         -moz-transform: scale(0.1111);
+         -o-transform: scale(0.1111);
+         transform: scale(0.1111);
+         }
+         .csstransforms #level-four {
+         -webkit-transform: scale(0.037);
+         -moz-transform: scale(0.037);
+         -o-transform: scale(0.037);
+         transform: scale(0.037);
+         }
+         .csstransforms #level-five {
+         -webkit-transform: scale(0.0123456);
+         -moz-transform: scale(0.0123456);
+         -o-transform: scale(0.0123456);
+         transform: scale(0.0123456);
+         }
+         /* step 3 */
+         /* set arbitrary height on proxy scroller */
+         .csstransforms #scroller { height: 4000px; }
+         /* prevent content from scrolling */
+         .csstransforms #wrap { 
+         position: fixed; 
+         width: 100%;
+         }
+         /* step 4 */
+         .csstransitions #content.transitions-enabled {
+         -webkit-transition: -webkit-transform .3s;
+         -moz-transition:    -moz-transform 1s;
+         -o-transition:      -o-transform 1s;
+         transition:         transform 1s;
+         }
+         #nav li a.current {
+         background: blue;
+         color: white;
+         }
+         p {
+          line-height: 20px;
+          margin-top: -4px;
+          height: 25px;
+         }
+         .red {
+          color: rgb(172, 58, 58);
+         }
+         h2 {
+          margin-top: 6px;
+         }
+      </style>
+      <script>
+         /* Modernizr custom build of 1.7: csstransforms | csstransitions | iepp */
+         window.Modernizr=function(a,b,c){function G(){}function F(a,b){var c=a.charAt(0).toUpperCase()+a.substr(1),d=(a+" "+p.join(c+" ")+c).split(" ");return!!E(d,b)}function E(a,b){for(var d in a)if(k[a[d]]!==c&&(!b||b(a[d],j)))return!0}function D(a,b){return(""+a).indexOf(b)!==-1}function C(a,b){return typeof a===b}function B(a,b){return A(o.join(a+";")+(b||""))}function A(a){k.cssText=a}var d="1.7",e={},f=!0,g=b.documentElement,h=b.head||b.getElementsByTagName("head")[0],i="modernizr",j=b.createElement(i),k=j.style,l=b.createElement("input"),m=":)",n=Object.prototype.toString,o=" -webkit- -moz- -o- -ms- -khtml- ".split(" "),p="Webkit Moz O ms Khtml".split(" "),q={svg:"http://www.w3.org/2000/svg"},r={},s={},t={},u=[],v,w=function(a){var c=b.createElement("style"),d=b.createElement("div"),e;c.textContent=a+"{#modernizr{height:3px}}",h.appendChild(c),d.id="modernizr",g.appendChild(d),e=d.offsetHeight===3,c.parentNode.removeChild(c),d.parentNode.removeChild(d);return!!e},x=function(){function d(d,e){e=e||b.createElement(a[d]||"div");var f=(d="on"+d)in e;f||(e.setAttribute||(e=b.createElement("div")),e.setAttribute&&e.removeAttribute&&(e.setAttribute(d,""),f=C(e[d],"function"),C(e[d],c)||(e[d]=c),e.removeAttribute(d))),e=null;return f}var a={select:"input",change:"input",submit:"form",reset:"form",error:"img",load:"img",abort:"img"};return d}(),y=({}).hasOwnProperty,z;C(y,c)||C(y.call,c)?z=function(a,b){return b in a&&C(a.constructor.prototype[b],c)}:z=function(a,b){return y.call(a,b)},r.csstransforms=function(){return!!E(["transformProperty","WebkitTransform","MozTransform","OTransform","msTransform"])},r.csstransitions=function(){return F("transitionProperty")};for(var H in r)z(r,H)&&(v=H.toLowerCase(),e[v]=r[H](),u.push((e[v]?"":"no-")+v));e.input||G(),e.crosswindowmessaging=e.postmessage,e.historymanagement=e.history,e.addTest=function(a,b){a=a.toLowerCase();if(!e[a]){b=!!b(),g.className+=" "+(b?"":"no-")+a,e[a]=b;return e}},A(""),j=l=null,f&&a.attachEvent&&function(){var a=b.createElement("div");a.innerHTML="<elem></elem>";return a.childNodes.length!==1}()&&function(a,b){function p(a,b){var c=-1,d=a.length,e,f=[];while(++c<d)e=a[c],(b=e.media||b)!="screen"&&f.push(p(e.imports,b),e.cssText);return f.join("")}function o(a){var b=-1;while(++b<e)a.createElement(d[b])}var c="abbr|article|aside|audio|canvas|details|figcaption|figure|footer|header|hgroup|mark|meter|nav|output|progress|section|summary|time|video",d=c.split("|"),e=d.length,f=new RegExp("(^|\\s)("+c+")","gi"),g=new RegExp("<(/*)("+c+")","gi"),h=new RegExp("(^|[^\\n]*?\\s)("+c+")([^\\n]*)({[\\n\\w\\W]*?})","gi"),i=b.createDocumentFragment(),j=b.documentElement,k=j.firstChild,l=b.createElement("body"),m=b.createElement("style"),n;o(b),o(i),k.insertBefore(m,k.firstChild),m.media="print",a.attachEvent("onbeforeprint",function(){var a=-1,c=p(b.styleSheets,"all"),k=[],o;n=n||b.body;while((o=h.exec(c))!=null)k.push((o[1]+o[2]+o[3]).replace(f,"$1.iepp_$2")+o[4]);m.styleSheet.cssText=k.join("\n");while(++a<e){var q=b.getElementsByTagName(d[a]),r=q.length,s=-1;while(++s<r)q[s].className.indexOf("iepp_")<0&&(q[s].className+=" iepp_"+d[a])}i.appendChild(n),j.appendChild(l),l.className=n.className,l.innerHTML=n.innerHTML.replace(g,"<$1font")}),a.attachEvent("onafterprint",function(){l.innerHTML="",j.removeChild(l),j.appendChild(n),m.styleSheet.cssText=""})}(a,b),e._enableHTML5=f,e._version=d,g.className=g.className.replace(/\bno-js\b/,"")+" js "+u.join(" ");return e}(this,this.document);
+         
+         (function(){
+         
+           // only proceed if CSS transforms are supported
+           if ( !Modernizr.csstransforms ) {
+             return;
+           }
+         
+           // the constructor that will do all the work
+           function Zoomer( content, navLinks ) {
+             // keep track of DOM
+             this.content = content;
+             this.navLinks = navLinks;
+         
+             // position of vertical scroll
+             this.scrolled = 0;
+             // zero-based number of sections
+             this.levels = 4;
+             // height of document
+             this.docHeight = document.documentElement.offsetHeight;
+             
+             this.levelGuide = {
+               '#level-one' : 0,
+               '#level-two' : 1,
+               '#level-three' : 2,
+               '#level-four' : 3,
+               '#level-five' : 4
+             };
+             
+             // bind Zoomer to scroll event
+             window.addEventListener( 'scroll', this, false);
+             // bind Zoomer.click to nav item clicks
+             for ( var i=0, len = this.navLinks.length; i < len; i++ ) {
+               this.navLinks[i].addEventListener( 'click', this, false );
+             }
+           }
+         
+           // enables constructor to be used within event listener
+           // like obj.addEventListener( eventName, this, false )
+           Zoomer.prototype.handleEvent = function( event ) {
+             if ( this[event.type] ) {
+               this[event.type](event);
+             }
+           };
+         
+           // triggered every time window scrolls
+           Zoomer.prototype.scroll = function( event ) {
+             // normalize scroll value from 0 to 1
+             this.scrolled = window.scrollY / ( this.docHeight - window.innerHeight );
+         
+             var scale = Math.pow( 3, this.scrolled * this.levels ),
+                 transformValue = 'scale('+scale+')';
+         
+             this.content.style.WebkitTransform = transformValue;
+             this.content.style.MozTransform = transformValue;
+             this.content.style.OTransform = transformValue;
+             this.content.style.transform = transformValue;
+             
+             // change current selection on nav
+             this.currentLevel = Math.round( this.scrolled * this.levels );
+         
+             if ( this.currentLevel !== this.previousLevel ) {
+               // remove previous currentNavItem
+               if ( this.currentNavLink ) {
+                 this.currentNavLink.className = '';
+               }
+               // select new currentNavItem
+               this.currentNavLink = this.navLinks[ this.currentLevel ];
+               this.currentNavLink.className = 'current';
+               this.previousLevel = this.currentLevel;
+             }
+           };
+           
+           // triggered on nav click
+           Zoomer.prototype.click = function( event ) {
+             //  get scroll based on href of clicked nav item
+             var hash = event.target.hash || event.target.parentNode.hash;
+             
+             if ( Modernizr.csstransitions ) {
+               this.content.className = 'transitions-enabled';
+               this.content.addEventListener( 'webkitTransitionEnd', this, false );
+               this.content.addEventListener( 'oTransitionEnd', this, false );
+               this.content.addEventListener( 'transitionend', this, false );
+             }
+             
+             this.scrollFromHash( hash );
+             event.preventDefault();
+           };
+           
+           Zoomer.prototype.scrollFromHash = function( hash ) {
+             var targetLevel = this.levelGuide[ hash ];
+             // proceed only if hash matches a level
+             if ( targetLevel === undefined ) {
+               return;
+             }
+             var scrollY = targetLevel / this.levels;
+             // adjust for scrollable height
+             scrollY = scrollY * ( this.docHeight - window.innerHeight );
+             // set hash in location URL
+             window.location.hash = hash;
+             // set scroll position, Zoomer.scroll will take care of the rest
+             window.scrollTo( 0, scrollY );
+           };
+           
+           Zoomer.prototype.webkitTransitionEnd = function( event ) {
+             this.transitionEnded( event );
+           };
+           Zoomer.prototype.transitionend = function( event ) {
+             this.transitionEnded( event );
+           };
+           Zoomer.prototype.oTransitionEnd = function( event ) {
+             this.transitionEnded( event );
+           };
+         
+           // disables transition after nav click
+           Zoomer.prototype.transitionEnded = function( event ) {
+             this.content.className = '';
+             this.content.removeEventListener( 'webkitTransitionEnd', this, false );
+             this.content.removeEventListener( 'transitionend', this, false );
+             this.content.removeEventListener( 'oTransitionEnd', this, false );
+           };
+         
+           function init() {
+             var content = document.getElementById('content'),
+                 navLinks = document.querySelectorAll('#nav a'),
+                 // init Zoomer constructor
+                 ZUI = new Zoomer( content, navLinks );
+         
+         
+             // scroll/zoom to hash if available 
+             function scrollToHash() {
+               if ( window.location.hash ) {
+                 ZUI.scrollFromHash( window.location.hash );
+               }
+             }
+             window.addEventListener( 'load', scrollToHash, false );
+         
+           }
+         
+           window.addEventListener( 'DOMContentLoaded', init, false );
+         
+         })();
+      </script>
+   </head>
+   <body>
+      <div id="wrap">
+         <div id="container">
+            <ul id="nav">
+               <li><a href="#level-one">Introduction</a></li>
+               <li><a href="#level-two">Materials and Methods</a></li>
+               <li><a href="#level-four">Results and Observations</a></li>
+               <li><a href="#level-four">Discussion</a></li>
+               <li><a href="#level-five">Works Cited</a></li>
             </ul>
-          </div><!--/.nav-collapse -->
-        </div>
+            <div id="content">
+               <div id="grid">
+                  <div class="target"></div>
+               </div>
+               <section id="level-one">
+                  <header>
+                     <h1>Introduction</h1>
+                     <p class="red">&nbsp;This is Owen, Brendan, Erik, and James's Osmosis Lab. Here we'll explain every aspect of our 3 experiments, including our</p>
+                     <p class="red">&nbsp;materials, methods, results, and observations. Finally, we'll discuss our results. </p>
+                  </header>
+                  <div class="box w3 y3">
+                     <h2>Questions Posed</h2>
+                     <p>"What will happen to yams soaked in unknown substances vs. a control?"</p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p style="background:none;"></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+                  <div class="w6 x3 y6">
+                     <h2>Some Scientific Background</h2>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+                  <div class="box w3 h3 y3 x6">
+                     <h2>Hypotheses</h2>
+                     <p>We hypothesize that the bla bla</p>
+                     <p></p>
+                     <p></p>
+                  </div>
+               </section>
+               <section id="level-two">
+                  <header class="w6">
+                     <h1>Materials and Methods</h1>
+                  </header>
+                  <div class="w3 x6">
+                     <h2>HTML</h2>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+                  <div class="w3 y3">
+                     <h2>Stuff</h2>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+                  <div class="box w6 x3 y6 h3">
+                     <div class="img">&#x2606;</div>
+                  </div>
+               </section>
+               <section id="level-three">
+                  <header class="w3">
+                     <h1>Results and Obervations</h1>
+                  </header>
+                  <div class="w6 x3">
+                     <h2>Stuff</h2>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+                  <div class="w6 x3 y6">
+                     <h2>Stuff</h2>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+                  <div class="box w3 y3 h6">
+                     <div class="img">&#x2606;</div>
+                  </div>
+                  <div class="box w3 x6 y3 h3">
+                     <div class="img">&#x2606;</div>
+                  </div>
+               </section>
+               <section id="level-four">
+                  <header class="x3 w3">
+                     <h1>Discussion</h1>
+                     <p></p>
+                     <p></p>
+                  </header>
+                  <div class="box w3 h3">
+                     <div class="img">&#x2606;</div>
+                  </div>
+                  <div class="box w3 x6 h3">
+                     <div class="img">&#x2606;</div>
+                  </div>
+                  <div class="w3 y3">
+                     <h2>Stuff</h2>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+                  <div class="w3 y3 x6">
+                     <h2>Stuff</h2>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+                  <div class="w6 y6" style="margin-top: 15px;">
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+               </section>
+               <section id="level-five">
+                  <header>
+                     <h1>Works Cited</h1>
+                  </header>
+                  <div class="w3 y3">
+                     <h2>Stuff</h2>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+                  <div class="w3 y6 x3">
+                     <h2>Stuff</h2>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                  </div>
+                  <div class="w3 y3 x6">
+                     <h2>Stuff</h2>
+                     <p></p>
+                     <p></p>
+                     <p></p>
+                     <p>MIT licensed & <a onclick="mixpanel.track('githublink')" href="https://github.com/OwenVersteeg/osmosislab">open-source</a>.</p>
+                  </div>
+                  <div class="box w3 h3 y3 x3">
+                     <div class="img">&#x2606;</div>
+                  </div>
+                  <div class="box w3 h3 y6 x6">
+                     <div class="img">&#x2606;</div>
+                  </div>
+               </section>
+            </div>
+            <!-- #content -->
+         </div>
+         <!-- #container -->
       </div>
-    </div>
-
-    <div class="container">
-
-      <!-- Main hero unit for a primary marketing message or call to action -->
-      <div class="hero-unit">
-        <h1>Osmosis Lab</h1>
-        <p>Our osmosis lab is awesome.</p>
-        <p><a class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-      </div>
-
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-       </div>
-        <div class="span4">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
-        </div>
-      </div>
-
-      <hr>
-
-      <footer>
-        <p>MIT licensed & <a onclick="mixpanel.track('githublink')" href="https://github.com/OwenVersteeg/osmosislab">open-source</a>.</p>
-      </footer>
-
-    </div> <!-- /container -->
-
-    <!-- Le javascript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
-
-<script type="text/javascript">
+      <!-- #wrap -->
+      <div id="scroller"></div>
+      <script type="text/javascript">
    $(document).ready(function() { 
 $.getJSON("http://jsonip.appspot.com?callback=?",
     function(data){ ip=data.ip.toString();
@@ -120,6 +574,5 @@ $.getJSON("http://jsonip.appspot.com?callback=?",
   });
     }); 
 </script>
-
-  </body>
+   </body>
 </html>
